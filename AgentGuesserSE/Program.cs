@@ -4,11 +4,9 @@ using System.IO;
 string[] agents = { "Jett","Raze", "Reyna", "Neon", "Phoenix", "Yoru", "Gekko",
     "Sova", "Fade", "Kayo","Skye", "Breach", "Cypher", "Sage", "Killjoy",
     "Chamber", "Omen", "Viper", "Harbor", "Brimstone", "Astra"};
-Console.WriteLine("Cs budeš hádat agentíky, mapy a itemy z vala uwu");
+Console.WriteLine("Cs budeš hádat agentíky.");
 
-Random generatorCisel = new Random();
-int nahodnyindex = generatorCisel.Next(0, 21);
-string hadanyAgent = agents[nahodnyindex];
+
 string releaseDate = "";
 string role = "";
 double pickRate = 0.1;
@@ -17,31 +15,47 @@ int menu = 0;
 string choice;
 int Streak = 0;
 int Coins = 0;
+string choice2;
+int guess = 0;
+int nahodnyindex = 0;
+
+Menu:
 
 while (menu == 0)
 {
-    Console.WriteLine("1) Start\n2) Coin balance\n3) Momentální streak\n4) EXIT");
+    Console.WriteLine("1) Start\n2) Coin balance\n3) Momentální streak\n4) Pravidla\n5) EXIT");
     choice = Console.ReadLine();
     if (choice == "1")
     {
+        Random generatorCisel = new Random();
+        nahodnyindex = generatorCisel.Next(agents.Length);
+        Console.Clear();
         menu++;
     }
     else if (choice == "2")
     {
         Console.WriteLine($"Momentálně máš {Coins} Coinů!");
         Thread.Sleep(3000);
+        Console.Clear();
     }
     else if (choice == "3")
     {
         Console.WriteLine($"Momentální streak je {Streak}. Nezapomeň že streak se po vypnutí restartuje :c");
         Thread.Sleep(5000);
+        Console.Clear();
     }
     else if (choice == "4")
+    {
+        Console.Clear();
+        Console.WriteLine("Dělení coinů:\nZa každý špatný guess dostanete 1 coin\npokud uhodnete do 5ti pokusů dostanete 3 coiny\ndo 10ti pokusů 2 coiny\nZa splnění po více než 10ti pokusech 1 coin");
+    }
+    else if (choice == "5")
     {
         goto exit;
     }
 }
-
+menu = 0;
+string hadanyAgent = agents[nahodnyindex];
 if (hadanyAgent == "Jett")
 {
     releaseDate = "Beta";
@@ -189,6 +203,7 @@ else if (hadanyAgent == "Astra")
     pickRate = 1.5;
     Narodnost = "Ghana";
 }
+
 while (true)
 {
     Console.WriteLine("Tvuj guess");
@@ -198,27 +213,101 @@ while (true)
     {
         Console.WriteLine("GG!");
         Thread.Sleep(1000);
-        break;
+        if (guess <= 5)
+        {
+            Coins = Coins +3;
+        }
+        else if (guess <= 10) 
+        {
+            Coins = Coins + 2;
+        }
+        else
+        {
+            Coins = Coins ++;
+        }
+        Streak = Streak++;
+        guess = 0;
+        Console.WriteLine("1)Menu\n2)exit(Streak a goldy budou ztraceny.)");
+        choice2 = Console.ReadLine();
+        if(choice2 == "1")
+        {
+            Console.Clear();
+            goto Menu;
+        }
+        if (choice2 == "2")
+        {
+            Console.Clear();
+            goto exit;
+        }
     }
     else if (odhadAgenta == "1")
     {
-        Console.WriteLine(releaseDate);
+        if (Coins >= 2)
+        {
+            Coins = Coins - 2;
+            Console.WriteLine(releaseDate);
+            Thread.Sleep(5000);
+            Console.Clear();
+        }
+        else
+        {
+            Console.WriteLine("Nedostatek Coinů!");
+        }
+
     }
     else if (odhadAgenta == "2")
     {
-        Console.WriteLine(role);
+        if (Coins >= 3)
+        {
+            Coins = Coins - 3;
+            Console.WriteLine(role);
+            Thread.Sleep(5000);
+            Console.Clear();
+        }
+        else
+        {
+            Console.WriteLine("Nedostatek Coinů!");
+
+        }
+
     }
     else if (odhadAgenta == "3")
     {
-        Console.WriteLine(pickRate + "%");
+        if (Coins >= 1)
+        {
+            Coins = Coins --;
+            Console.WriteLine(pickRate + "%");
+            Thread.Sleep(5000);
+            Console.Clear();
+        }
+        else
+        {
+            Console.WriteLine("Nedostatek Coinů!");
+            Thread.Sleep(5000);
+            Console.Clear();
+        }
     }
     else if (odhadAgenta == "4")
     {
-        Console.WriteLine(Narodnost);
+        if (Coins >= 5)
+        {
+            Coins = Coins - 5;
+            Console.WriteLine(Narodnost);
+            Thread.Sleep(5000);
+            Console.Clear();
+        }
+        else
+        {
+            Console.WriteLine("Nedostatek Coinů!");
+            Thread.Sleep(1000);
+            Console.Clear();
+        }
     }
     else
     {
         Console.WriteLine("Nn zkus znova");
+        guess++;
+        Coins++;
         Thread.Sleep(1000);
         Console.Clear();
     }
