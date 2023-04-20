@@ -207,7 +207,7 @@ else if (hadanyAgent == "Astra")
 while (true)
 {
     Console.WriteLine("Tvuj guess");
-    Console.WriteLine("Hints:\nRealeaseDate - 1\nRole - 2\nPick Rate - 3\nNárodnost - 4");
+    Console.WriteLine($"Hints:\n1) RealeaseDate - 3$\n2) Role - 4$\n3) Pick Rate - 1$\n4) Národnost - 5$\nMomentálně máš {Coins}$");
     string odhadAgenta = Console.ReadLine();
     if (odhadAgenta == hadanyAgent)
     {
@@ -225,7 +225,7 @@ while (true)
         {
             Coins = Coins ++;
         }
-        Streak = Streak++;
+        Streak++;
         guess = 0;
         Console.WriteLine("1)Menu\n2)exit(Streak a goldy budou ztraceny.)");
         choice2 = Console.ReadLine();
@@ -242,9 +242,9 @@ while (true)
     }
     else if (odhadAgenta == "1")
     {
-        if (Coins >= 2)
+        if (Coins >= 3)
         {
-            Coins = Coins - 2;
+            Coins = Coins - 3;
             Console.WriteLine(releaseDate);
             Thread.Sleep(5000);
             Console.Clear();
@@ -257,9 +257,9 @@ while (true)
     }
     else if (odhadAgenta == "2")
     {
-        if (Coins >= 3)
+        if (Coins >= 4)
         {
-            Coins = Coins - 3;
+            Coins = Coins - 4;
             Console.WriteLine(role);
             Thread.Sleep(5000);
             Console.Clear();
