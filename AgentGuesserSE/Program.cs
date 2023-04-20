@@ -252,6 +252,9 @@ while (true)
         else
         {
             Console.WriteLine("Nedostatek Coinů!");
+            Coins--;
+            Thread.Sleep(1000);
+            Console.Clear();
         }
 
     }
@@ -267,7 +270,9 @@ while (true)
         else
         {
             Console.WriteLine("Nedostatek Coinů!");
-
+            Coins--;
+            Thread.Sleep(1000);
+            Console.Clear();
         }
 
     }
@@ -283,7 +288,8 @@ while (true)
         else
         {
             Console.WriteLine("Nedostatek Coinů!");
-            Thread.Sleep(5000);
+            Coins --;
+            Thread.Sleep(1000);
             Console.Clear();
         }
     }
@@ -299,6 +305,7 @@ while (true)
         else
         {
             Console.WriteLine("Nedostatek Coinů!");
+            Coins--;
             Thread.Sleep(1000);
             Console.Clear();
         }
