@@ -1,5 +1,4 @@
-﻿
-string[] agents = { "Jett","Raze", "Reyna", "Neon", "Phoenix", "Yoru", "Gekko",
+﻿string[] agents = { "Jett","Raze", "Reyna", "Neon", "Phoenix", "Yoru", "Gekko",
     "Sova", "Fade", "Kayo","Skye", "Breach", "Cypher", "Sage", "Killjoy",
     "Chamber", "Omen", "Viper", "Harbor", "Brimstone", "Astra"};
 Console.WriteLine("Cs budeš hádat agentíky.");
@@ -250,7 +249,6 @@ while (true)
         else
         {
             Console.WriteLine("Nedostatek Coinů!");
-            Coins--;
             Thread.Sleep(1000);
             Console.Clear();
         }
@@ -268,7 +266,6 @@ while (true)
         else
         {
             Console.WriteLine("Nedostatek Coinů!");
-            Coins--;
             Thread.Sleep(1000);
             Console.Clear();
         }
@@ -286,7 +283,6 @@ while (true)
         else
         {
             Console.WriteLine("Nedostatek Coinů!");
-            Coins --;
             Thread.Sleep(1000);
             Console.Clear();
         }
@@ -303,7 +299,6 @@ while (true)
         else
         {
             Console.WriteLine("Nedostatek Coinů!");
-            Coins--;
             Thread.Sleep(1000);
             Console.Clear();
         }
