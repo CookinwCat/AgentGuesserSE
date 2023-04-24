@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.IO;
-
+﻿
 string[] agents = { "Jett","Raze", "Reyna", "Neon", "Phoenix", "Yoru", "Gekko",
     "Sova", "Fade", "Kayo","Skye", "Breach", "Cypher", "Sage", "Killjoy",
     "Chamber", "Omen", "Viper", "Harbor", "Brimstone", "Astra"};
